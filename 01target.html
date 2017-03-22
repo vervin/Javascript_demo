@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #target {
+            width: 200px;
+            height: 300px;
+            margin: 40px;
+            background-color: tomato
+        }
+    </style>
+</head>
+
+<body>
+    <div id="target"></div>
+    <script>
+        //请用原生js实现一个函数,给页面制定的任意一个元素添加一个透明遮罩
+        //(透明度可变,默认0.2),使这个区域点击无效,要求兼容IE8+及各主流浏览器
+        function addMask(elem, opacity) {
+            opacity = opacity || 0.2; //(透明度可变,默认0.2)
+
+            var rect = elem.getBoundingClientRect(); //// getBoundingClientRect返回一个对象，
+            //包含top,left,right,bottom,width,height
+            var style = getComputedStyle(elem, null);
+            // Window.getComputedStyle() 方法会在一个元素应用完有效样式且计算完所有属性的基本值之后给出所有 CSS 属性的值。
+            var mask = document.createElement('div');
+            mask.style.position = 'absolute';
+            var marginLeft = parseFloat(style.marginLeft);
+            mask.style.left = (elem.offsetLeft - marginLeft) + 'px';
+            var marginTop = parseFloat(style.marginTop);
+            mask.style.top = (elme.offsetTop - marginTop) + 'px';
+            mask.style.zIndex = 999;
+            mask.style.opacity = opacity;
+            mask.style.backgroundColor = '#000';
+
+            mask.style.width = (parseFloat(style.marginLeft) + parseFloat(style.marginRight) + rect.width) + 'px';
+            mask.style.height = (parseFloat(style.marginTop) + parseFloat(style.marginBottom) + rect.height) + 'px';
+            
+            elem.parentNode.appendC
+            
+        }
+    </script>
+
+</body>
+
+</html>
