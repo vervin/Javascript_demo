@@ -1,0 +1,33 @@
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head> 
+<body> 
+<div id="time"></div> 
+<script type="text/javascript"> 
+function currentTime(){ 
+  var d=new Date(),str=''; 
+  var days = ['日','一','二','三','四','五','六'];
+  str+=d.getFullYear()+'年'; 
+  str+=d.getMonth() + 1+'月'; 
+  str+=d.getDate()+'日'; 
+  str+=d.getHours()+'时'; 
+  str+=d.getMinutes()+'分'; 
+  str+= d.getSeconds()+'秒'; 
+  str+= '今天是星期' + days[d.getDay()]
+
+  return str; 
+} 
+// setInterval(function(){$('#time').html(currentTime)},1000); 
+
+
+
+
+setInterval(function(time){
+    var time = currentTime();
+    document.getElementById('time').innerHTML = time;
+}, 0)
+
+</script> 
+</body> 
+</html> 
